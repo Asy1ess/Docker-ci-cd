@@ -22,9 +22,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
           
-      - name: downcase REPO
+      - name: set lower case owner name
         run: |
-          echo "REPO=$(echo 'console.log("${{ github.repository }}".toLowerCase())' | node -)" >> ${GITHUB_ENV}
+          echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+        env:
+          OWNER: '${{ github.repository_owner }}'
           
       - name: Build and push
         uses: docker/build-push-action@v2
