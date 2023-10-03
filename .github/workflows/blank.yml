@@ -29,6 +29,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install docker
           sudo docker build -t asy1ess/nginxtest:test .
+          sudo docker ps -a
+          sudo docker images
           sudo docker push asy1ess/nginxtest:test
           
       
