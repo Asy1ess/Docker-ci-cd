@@ -22,4 +22,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ github.actor }}/nginxtest:${{ needs.makeTagAndRelease.outputs.tag_name }},
-            ghcr.io/${{ github.actor }}/nginxtest:latest
+            ghcr.io/${{ github.actor }}/nginxtest:test
