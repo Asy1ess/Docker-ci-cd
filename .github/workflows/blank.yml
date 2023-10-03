@@ -33,4 +33,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ env.REPO }}/nginxtest:latest
+            ghcr.io/${{ env.REPO }}/docker-ci-cd:latest
