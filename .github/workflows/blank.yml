@@ -8,17 +8,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/v}" >> $GITHUB_ENV
-             $(echo 'console.log("${{ github.repository_owner }}".toLowerCase())' | node -) >> $REPO_ENV
+        
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
+        
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
+          
+      - name: downcase REPO
+        run: |
+          echo "REPO=${{ github.repository_owner }}" >> ${GITHUB_ENV}
+          
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -26,4 +33,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ env.REPO_ENV }}/nginxtest:latest
+            ghcr.io/${{ env.REPO }}/nginxtest:latest
