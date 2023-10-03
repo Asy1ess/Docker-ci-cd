@@ -24,7 +24,7 @@ jobs:
           
       - name: downcase REPO
         run: |
-          echo "REPO=${{ github.repository_owner },,}" >> ${GITHUB_ENV}
+          echo "REPO=$(echo 'console.log("${{ github.repository }}".toLowerCase())' | node -)" >> ${GITHUB_ENV}
           
       - name: Build and push
         uses: docker/build-push-action@v2
