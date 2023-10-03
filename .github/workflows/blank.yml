@@ -33,4 +33,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ env.REPO }}/docker-ci-cd:latest
+            ghcr.io/asy1ess/docker-ci-cd:latest
