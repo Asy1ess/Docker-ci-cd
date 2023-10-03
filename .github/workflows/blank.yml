@@ -24,3 +24,11 @@ jobs:
           tags: |
             ghcr.io/${{ github.actor }}/nginxtest:${{ needs.makeTagAndRelease.outputs.tag_name }},
             ghcr.io/${{ github.actor }}/nginxtest:test
+            
+      - run: |
+          sudo apt-get update
+          sudo apt-get install docker
+          sudo docker build -t asy1ess/nginxtest:test .
+          sudo docker push asy1ess/nginxtest:test
+          sudo docker images
+      
