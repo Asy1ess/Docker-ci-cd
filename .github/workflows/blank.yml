@@ -26,10 +26,10 @@ jobs:
             ghcr.io/${{ github.actor }}/nginxtest:test
             
       - run: |
-          sudo apt-get update
-          sudo apt-get install docker
-          sudo docker build -t asy1ess/nginxtest:test .
-          sudo docker image tag asy1ess/nginxtest:test asy1essnginxtest:test
-          sudo docker push asy1ess/nginxtest:test
+          apt-get update
+          apt-get install docker
+          docker build -t asy1ess/nginxtest:test .
+          docker info | grep Username
+          docker push asy1ess/nginxtest:test
           
       
