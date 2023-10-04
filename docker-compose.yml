@@ -12,3 +12,6 @@ services:
 networks:
   testnetwork:
     external: true
+
+volumes:
+  my-vol:
