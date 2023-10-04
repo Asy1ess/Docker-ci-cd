@@ -5,13 +5,4 @@ services:
     port: "8080:80"
     restart: always
     volumes:
-     - my-vol:/etc/nginx
-    networks:
-      - testnetwork
-      
-networks:
-  testnetwork:
-    external: true
-
-volumes:
-  my-vol:
+     - ./:/usr/share/nginx/html
