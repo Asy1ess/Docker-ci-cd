@@ -1,8 +1,9 @@
 version: '3.7'
 services:
   nginx:
-    build: nginxtest:test
-    port: "8080:80"
+    image: ghcr.io/asy1ess/docker-ci-cd:latest
+    ports: 
+      - "20000:80"
     restart: always
     volumes:
      - ./:/usr/share/nginx/html
