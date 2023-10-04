@@ -30,10 +30,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          # 가장 최신 image 에 latest tag 달기
-#          flavor: |
-#            latest=true
-          # Git short commit, use git version tag
+          flavor: |
+            latest=true
           tags: |
             type=sha
             
@@ -42,11 +40,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          file: Dockerfile # repository 기준 도커파일 위치
+          file: Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  deploy:
-    needs: build-and-push-image
-    name: deploy
-    runs-on: [ self-hosted, label-development ]
