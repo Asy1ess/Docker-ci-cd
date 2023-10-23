@@ -54,5 +54,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             ls -al
+            docker ps -a
             cd /docker/Docker-ci-cd
             docker-compose up -d
