@@ -4,6 +4,6 @@ services:
     image: ghcr.io/asy1ess/docker-ci-cd:latest
     ports: 
       - "20000:80"
-    restart: always
+    restart: always 
     volumes:
      - ./:/usr/share/nginx/html
